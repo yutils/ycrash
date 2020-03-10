@@ -19,7 +19,7 @@ import java.util.Map;
  * @author yujing 2019年7月2日12:28:12
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
-public class YJson {
+class YJson {
     /**
      * 把对象转换成json, 对象List和Map随便嵌套。
      *
