@@ -26,7 +26,7 @@ dependencies {
 ##  用法：
   1.在Application 的OnCreate中添加如下代码。
 
-<font color=#0099ff size=4 face="黑体">java</font>
+<font color=#0099ff size=4 >java</font>
 ```java
 //必须
 YCrash.getInstance().init(this);
@@ -43,7 +43,7 @@ YCrash.getInstance().setIp("IP");
 YCrash.getInstance().setPort("端口");
 ```
 
-<font color=#0099ff size=4 face="黑体">kotlin</font>
+<font color=#0099ff size=4 >kotlin</font>
 ```kotlin
 //必须
 YCrash.getInstance().init(this)
