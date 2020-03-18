@@ -27,7 +27,8 @@ dependencies {
   1.在Application 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
   JAVA
 ```
-YCrash.getInstance().init(this);//必须
+//必须
+YCrash.getInstance().init(this);
 //修改名称
 YCrash.getInstance().setAppName("AppName");
 //日志修改
@@ -36,7 +37,7 @@ YCrash.getInstance().setCrashInfoListener(new CrashInfoListener() {
         //打印，显示，储存
     }
 });
-//修改提交日志的服务器和端口，服务器源码见我另外一篇开源代码
+//修改提交日志的服务器和端口，服务器源码见我另外一篇开源代码，设置成null则为不提交服务器
 YCrash.getInstance().setIp("IP");
 YCrash.getInstance().setPort("端口");
 ```

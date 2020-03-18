@@ -245,7 +245,8 @@ public class YCrash implements UncaughtExceptionHandler {
                     //如果失败就用Yjson转json
                     paramsMap.put("appInfo", YJson.toJson(appInfo));
                 }
-                post("http://" + ip + ":" + port + submitUrl, paramsMap);
+                if (ip != null && port != null)
+                    post("http://" + ip + ":" + port + submitUrl, paramsMap);
             }
             // 回调
             try {
