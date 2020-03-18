@@ -2,7 +2,7 @@
 源码采用java8.0，安卓10.0，API29，androidx。
 当然低版本copy代码过去也能用。
 
-##当前最新版：————>[![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
+##当前最新版：————> [![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
 
 **Gradle 引用**
 1. 在根build.gradle中添加
@@ -15,7 +15,7 @@ allprojects {
 }
 ```
 
-2. 子module添加依赖,当前最新版：————>[![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
+2. 子module添加依赖，当前最新版：————> [![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
 
 ```
 dependencies {
