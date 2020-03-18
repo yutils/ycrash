@@ -15,23 +15,19 @@ allprojects {
 }
 ```
 
-2. 子module添加依赖，当前最新版：↓
-[![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
+2. 子module添加依赖，当前最新版：————> [![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
 
 ```
 dependencies {
-    implementation 'com.github.yutils:ycrash:*.*.*'
+    implementation 'com.github.yutils:ycrash:1.0.1'
 }
 ```
 
 #  用法：
-  1.在APPLICATION 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
+  1.在Application 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
+  JAVA
 ```
 YCrash.getInstance().init(this);//必须
-
-# 异常信息存放：
-    异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
-
 //修改名称
 YCrash.getInstance().setAppName("AppName");
 //日志修改
@@ -44,7 +40,14 @@ YCrash.getInstance().setCrashInfoListener(new CrashInfoListener() {
 YCrash.getInstance().setIp("IP");
 YCrash.getInstance().setPort("端口");
 ```
+  kotlin
+```
+YCrash.getInstance().appName="YCrash"
+YCrash.getInstance().init(this)
+```
 
+# 异常信息存放：
+    异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
 
 # 注意添加权限：
 > * 非必须权限  android.permission.INTERNET
