@@ -15,7 +15,8 @@ allprojects {
 }
 ```
 
-2. 子module添加依赖，当前最新版：————> [![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
+2. 子module添加依赖，当前最新版：↓
+[![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
 
 ```
 dependencies {
