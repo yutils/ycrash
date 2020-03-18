@@ -24,7 +24,8 @@ dependencies {
 ```
 
 ##  用法：
-  1.在Application 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
+  1.在Application 的OnCreate中添加如下代码。
+
   JAVA
 ```
 //必须
@@ -41,6 +42,7 @@ YCrash.getInstance().setCrashInfoListener(new CrashInfoListener() {
 YCrash.getInstance().setIp("IP");
 YCrash.getInstance().setPort("端口");
 ```
+
   kotlin
 ```
 YCrash.getInstance().appName="YCrash"
