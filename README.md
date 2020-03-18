@@ -55,5 +55,4 @@ YCrash.getInstance().init(this)
 > * 非必须权限 android.permission.ACCESS_NETWORK_STATE
 > * 非必须权限 android.permission.READ_PHONE_STATE
 
-感谢关注：[细雨若静][1]
-  [1]: https://weibo.com/32005200
+感谢关注：[细雨若静](https://weibo.com/32005200)
