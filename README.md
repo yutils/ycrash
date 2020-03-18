@@ -26,7 +26,7 @@ dependencies {
 ##  用法：
   1.在Application 的OnCreate中添加如下代码。
 
-  JAVA
+$\color{#376956}{JAVA}$
 ```
 //必须
 YCrash.getInstance().init(this);
@@ -43,7 +43,7 @@ YCrash.getInstance().setIp("IP");
 YCrash.getInstance().setPort("端口");
 ```
 
-  kotlin
+$\color{#376956}{kotlin}$
 ```
 //必须
 YCrash.getInstance().init(this)
