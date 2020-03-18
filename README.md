@@ -45,8 +45,17 @@ YCrash.getInstance().setPort("端口");
 
   kotlin
 ```
-YCrash.getInstance().appName="YCrash"
+//必须
 YCrash.getInstance().init(this)
+//修改名称
+YCrash.getInstance().appName = "AppName"
+//日志修改
+YCrash.getInstance().setCrashInfoListener {
+    //打印，显示，储存
+}
+//修改提交日志的服务器和端口，服务器源码见我另外一篇开源代码，设置成null则为不提交服务器
+YCrash.getInstance().setIp("IP")
+YCrash.getInstance().setPort("端口")
 ```
 
 ## 异常信息存放：
