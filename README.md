@@ -59,7 +59,7 @@ YCrash.getInstance().setPort("端口")
 ```
 
 ## 异常信息存放：
-    异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
+    异常信息存放在：/sdcard/android/data/软件包名/files/crash/软件名_时间.log
 
 ## 注意添加权限：
 > * 非必须权限  android.permission.INTERNET
