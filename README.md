@@ -67,6 +67,10 @@ YCrash.getInstance().setPort("端口")
 > * 非必须权限 android.permission.ACCESS_NETWORK_STATE
 > * 非必须权限 android.permission.READ_PHONE_STATE
 
+
+
 Github地址：[https://github.com/yutils/ycrash](https://github.com/yutils/ycrash)
+
 我的CSDN：[https://blog.csdn.net/Yu1441](https://blog.csdn.net/Yu1441)
+
 感谢关注微博：[细雨若静](https://weibo.com/32005200)
