@@ -10,7 +10,11 @@ class MainActivity : BaseActivity() {
 
     override fun init() {
         //var a=findViewById<Button>(R.id.button1)
-        button1.setOnClickListener { show("123") }
+        button1.text="点击崩溃"
+        button1.setOnClickListener {
+            var a=0
+            var b=1/a
+        }
         button2.setOnClickListener { }
         button3.setOnClickListener { }
         button4.setOnClickListener { }

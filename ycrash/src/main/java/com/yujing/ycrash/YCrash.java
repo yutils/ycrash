@@ -53,24 +53,26 @@ import static android.os.Environment.MEDIA_MOUNTED;
 /**
  * 全局捕获异常当程序发生Uncaught异常的时候，记录错误日志，并且弹出提示，并回调给application
  *
- * @author 余静 2019年9月4日14:29:31
+ * @author 余静 QQ3373217 2020年3月18日15:40:58
  * 注意添加权限：
- * android.permission.INTERNET
- * android.permission.MOUNT_UNMOUNT_FILESYSTEMS
- * android.permission.WRITE_EXTERNAL_STORAGE
- * android.permission.READ_PHONE_STATE"
- * android.permission.ACCESS_FINE_LOCATION"
- * android.permission.ACCESS_COARSE_LOCATION"
+ * 非必须权限 android.permission.INTERNET
+ * 非必须权限 android.permission.ACCESS_COARSE_LOCATION
+ * 非必须权限 android.permission.ACCESS_NETWORK_STATE
+ * 非必须权限 android.permission.READ_PHONE_STATE
  * 用法：在APPLICATION 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
+ * 异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
  * YCrash.getInstance().init(this);
  * YCrash.getInstance().setAppName("AppName");
  * YCrash.getInstance().setCrashInfoListener(new CrashInfoListener() {
- * public String getInfo(String crashInfo) { Log.e("系统崩溃拦截",
- * crashInfo); return null; } });
+ * @Override public void info(AppInfo appInfo) {
+ * //打印，显示，储存
+ * }
+ * });
  */
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
+@SuppressLint("MissingPermission")
 public class YCrash implements UncaughtExceptionHandler {
-    private static final String TAG = "Crash";
+    private static final String TAG = "Ycrash";
     /**
      * 单列模式
      */
@@ -247,8 +249,11 @@ public class YCrash implements UncaughtExceptionHandler {
             }
             // 回调
             try {
-                if (crashInfoListener != null)
+                if (crashInfoListener != null) {
                     crashInfoListener.info(appInfo);
+                } else {
+                    Log.e("Ycrash", appInfo.崩溃信息);
+                }
             } catch (Exception e) {
                 Log.e(TAG, "请检查Application中setCrashInfoListener回调中的错误！", e);
             }
@@ -289,13 +294,7 @@ public class YCrash implements UncaughtExceptionHandler {
 
     //保存到磁盘
     private void saveFile() throws Exception {
-        // 写入磁盘，判断写入权限
-        String filePath;
-        int perm = mContext.checkCallingOrSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (perm == PackageManager.PERMISSION_GRANTED) {
-            filePath = writeFile(appInfo.toString());
-            appInfo.日志存放位置 = filePath;
-        }
+        appInfo.日志存放位置 = writeFile(appInfo.toString());
     }
 
     /**
@@ -470,7 +469,7 @@ public class YCrash implements UncaughtExceptionHandler {
      */
     private String getGlobalPath() {
 //        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "crash" + File.separator + AppName + File.separator;
-        return getFilePath(mContext, "crash" + File.separator + AppName + File.separator);
+        return getFilePath(mContext, "crash") + File.separator;
     }
 
     @SuppressWarnings({"ResultOfMethodCallIgnored", "ConstantConditions"})
