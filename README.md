@@ -4,7 +4,7 @@
 
 ##当前最新版：————> [![](https://jitpack.io/v/yutils/ycrash.svg)](https://jitpack.io/#yutils/ycrash)
 
-**Gradle 引用**
+## Gradle 引用
 1. 在根build.gradle中添加
 ```
 allprojects {
@@ -23,7 +23,7 @@ dependencies {
 }
 ```
 
-#  用法：
+##  用法：
   1.在Application 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
   JAVA
 ```
@@ -46,13 +46,14 @@ YCrash.getInstance().appName="YCrash"
 YCrash.getInstance().init(this)
 ```
 
-# 异常信息存放：
+## 异常信息存放：
     异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
 
-# 注意添加权限：
+## 注意添加权限：
 > * 非必须权限  android.permission.INTERNET
 > * 非必须权限 android.permission.ACCESS_COARSE_LOCATION
 > * 非必须权限 android.permission.ACCESS_NETWORK_STATE
 > * 非必须权限 android.permission.READ_PHONE_STATE
 
-感谢关注：细雨若静
+感谢关注：[细雨若静][1]
+  [1]: https://weibo.com/32005200
