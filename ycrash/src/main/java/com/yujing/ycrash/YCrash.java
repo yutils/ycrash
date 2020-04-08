@@ -64,7 +64,7 @@ import static android.os.Environment.MEDIA_MOUNTED;
  * YCrash.getInstance().init(this);
  * YCrash.getInstance().setAppName("AppName");
  * YCrash.getInstance().setCrashInfoListener(new CrashInfoListener() {
- * @Override public void info(AppInfo appInfo) {
+ * public void info(AppInfo appInfo) {
  * //打印，显示，储存
  * }
  * });
@@ -331,7 +331,8 @@ public class YCrash implements UncaughtExceptionHandler {
                 if (telephonyManager != null) {
                     appInfo.imei = Build.VERSION.SDK_INT >= 26 ? telephonyManager.getImei() : telephonyManager.getDeviceId();
                     appInfo.androidId = Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID);
-                    appInfo.手机号 = telephonyManager.getLine1Number();
+                    //不予以采集
+                    //appInfo.手机号 = telephonyManager.getLine1Number();
                     appInfo.网络运营商 = telephonyManager.getNetworkOperatorName();
                     appInfo.网络类型 = "" + telephonyManager.getNetworkType();
                 }
@@ -658,7 +659,7 @@ public class YCrash implements UncaughtExceptionHandler {
         public String DPI;
         public String imei;
         public String androidId;
-        public String 手机号;
+        //public String 手机号;
         public String 网络运营商;
         public String 网络类型;
         public String 位置;
@@ -688,7 +689,7 @@ public class YCrash implements UncaughtExceptionHandler {
                     ", DPI='" + DPI + '\'' +
                     ", imei='" + imei + '\'' +
                     ", androidId='" + androidId + '\'' +
-                    ", 手机号='" + 手机号 + '\'' +
+                    // ", 手机号='" + 手机号 + '\'' +
                     ", 网络运营商='" + 网络运营商 + '\'' +
                     ", 网络类型='" + 网络类型 + '\'' +
                     ", 位置='" + 位置 + '\'' +
