@@ -4,9 +4,13 @@
 
 ##当前最新版：————> [![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9qaXRwYWNrLmlvL3YveXV0aWxzL3ljcmFzaC5zdmc?x-oss-process=image/format,png)](https://jitpack.io/#yutils/ycrash)
 
+- 为了支持个人资料的保护，维护个人隐私权。使用此异常捕获，请在隐私说明中描述出异常崩溃获取手机特征值信息等说明。
+
 **[releases里面有JAR包。点击前往](https://github.com/yutils/ycrash/releases)**
 
-- 为了支持个人资料的保护，维护个人隐私权。使用此异常捕获，请在隐私说明中描述出异常崩溃获取手机特征值信息等说明。
+**配套的Server端请看过来：[点击前往](https://github.com/yutils/ycrash-server)**
+
+**配套的WEB前端页面请看过来：[点击前往](https://github.com/yutils/ycrash-web)**
 
 ## Gradle 引用
 
