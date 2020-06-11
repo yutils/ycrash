@@ -6,6 +6,8 @@
 
 **[releases里面有JAR包。点击前往](https://github.com/yutils/ycrash/releases)**
 
+- 为了支持个人资料的保护，维护个人隐私权。使用此异常捕获，请在隐私说明中描述出异常崩溃获取手机特征值信息等说明。
+
 ## Gradle 引用
 
 1. 在根build.gradle中添加
