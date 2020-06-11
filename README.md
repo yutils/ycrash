@@ -20,7 +20,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.yutils:ycrash:1.0.1'
+    implementation 'com.github.yutils:ycrash:1.0.2'
 }
 ```
 
