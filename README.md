@@ -4,6 +4,8 @@
 
 ##当前最新版：————> [![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9qaXRwYWNrLmlvL3YveXV0aWxzL3ljcmFzaC5zdmc?x-oss-process=image/format,png)](https://jitpack.io/#yutils/ycrash)
 
+**[releases里面有JAR包。点击前往](https://github.com/yutils/ycrash/releases)**
+
 ## Gradle 引用
 
 1. 在根build.gradle中添加
