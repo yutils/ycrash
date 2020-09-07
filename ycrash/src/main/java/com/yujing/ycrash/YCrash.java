@@ -53,21 +53,23 @@ import static android.os.Environment.MEDIA_MOUNTED;
 /**
  * 全局捕获异常当程序发生Uncaught异常的时候，记录错误日志，并且弹出提示，并回调给application
  *
- * @author 余静 QQ3373217 2020年3月18日15:40:58
- * 注意添加权限：
- * 非必须权限 android.permission.INTERNET
- * 非必须权限 android.permission.ACCESS_COARSE_LOCATION
- * 非必须权限 android.permission.ACCESS_NETWORK_STATE
- * 非必须权限 android.permission.READ_PHONE_STATE
- * 用法：在APPLICATION 的OnCreate中添加 // 异常崩溃拦截写入日志到本地
- * 异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
- * YCrash.getInstance().init(this);
- * YCrash.getInstance().setAppName("AppName");
- * YCrash.getInstance().setCrashInfoListener(new CrashInfoListener() {
- * public void info(AppInfo appInfo) {
- * //打印，显示，储存
- * }
- * });
+ * @author 余静 QQ3373217 2020年9月7日10:21:01
+ */
+/* 使用举例
+
+//用法：在Application 的 onCreate() 方法中添加 ，异常崩溃拦截写入日志到本地
+
+YCrash.getInstance().init(this);
+YCrash.getInstance().setAppName(getResources().getString(R.string.app_name));
+YCrash.getInstance().setCrashInfoListener(appInfo -> Log.e("崩溃拦截", appInfo.崩溃信息));
+
+异常信息存放在：/sdcard/android/data/软件报名/files/crash/软件名_时间.log
+注意添加权限：
+非必须权限 android.permission.INTERNET
+非必须权限 android.permission.ACCESS_COARSE_LOCATION
+非必须权限 android.permission.ACCESS_NETWORK_STATE
+非必须权限 android.permission.READ_PHONE_STATE
+
  */
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 @SuppressLint("MissingPermission")
@@ -169,12 +171,10 @@ public class YCrash implements UncaughtExceptionHandler {
      */
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        if (handleException(ex)) {
-            // 用户正常处理错误
-            exit();
-        } else {
-            exit();
-        }
+        //        if (handleException(ex)) {
+        //            // 用户正常处理错误
+        //        }
+        exit();
     }
 
     /**
@@ -183,10 +183,7 @@ public class YCrash implements UncaughtExceptionHandler {
     @SuppressLint("NewApi")
     private void exit() {
         try {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(0);
-            } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 // 适合于安卓5.1以上手机退出
                 ActivityManager activityManager = (ActivityManager) mContext.getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
                 if (activityManager != null) {
@@ -196,9 +193,9 @@ public class YCrash implements UncaughtExceptionHandler {
                             appTask.finishAndRemoveTask();
                         }
                 }
-                android.os.Process.killProcess(android.os.Process.myPid());
-                System.exit(0);
             }
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
         } catch (Exception e) {
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(0);
@@ -209,8 +206,7 @@ public class YCrash implements UncaughtExceptionHandler {
      * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成.如果处理了该异常信息; 否则返回false.
      */
     private boolean handleException(Throwable ex) {
-        if (ex == null)
-            return false;
+        if (ex == null) return false;
         try {
             // 使用Toast来显示异常信息
             new Thread() {
@@ -272,8 +268,7 @@ public class YCrash implements UncaughtExceptionHandler {
      * 保存错误信息到文件中，返回文件名称, 便于将文件传送到服务器
      */
     private void getCrashInfo(Throwable ex) {
-        if (AppName == null)
-            AppName = mContext.getPackageName();
+        if (AppName == null) AppName = mContext.getPackageName();
         appInfo.软件名称 = AppName;
         // 获取设备基础信息
         getBaseInfo();
@@ -336,8 +331,8 @@ public class YCrash implements UncaughtExceptionHandler {
                     appInfo.网络类型 = "" + telephonyManager.getNetworkType();
                 }
             }
-            if (appInfo.imei==null){
-                appInfo.imei=Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+            if (appInfo.imei == null) {
+                appInfo.imei = Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
             }
         } catch (Exception e) {
             Log.e(TAG, "收集设备信息时出错", e);
@@ -705,7 +700,6 @@ public class YCrash implements UncaughtExceptionHandler {
                     ", 崩溃信息='" + 崩溃信息 + '\'' +
                     ", 日志存放位置='" + 日志存放位置 + '\'' +
                     '}';
-
         }
     }
 }
