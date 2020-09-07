@@ -318,21 +318,18 @@ public class YCrash implements UncaughtExceptionHandler {
             Log.e(TAG, "收集基础信息时出错", e);
         }
         try {
+            appInfo.androidId = Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
             // 判断权限
             int perm = mContext.checkCallingOrSelfPermission(Manifest.permission.READ_PHONE_STATE);
             if (perm == PackageManager.PERMISSION_GRANTED) {
                 TelephonyManager telephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
                 if (telephonyManager != null) {
                     appInfo.imei = Build.VERSION.SDK_INT >= 26 ? telephonyManager.getImei() : telephonyManager.getDeviceId();
-                    appInfo.androidId = Settings.Secure.getString(mContext.getContentResolver(), Settings.Secure.ANDROID_ID);
                     //不予以采集
                     //appInfo.手机号 = telephonyManager.getLine1Number();
                     appInfo.网络运营商 = telephonyManager.getNetworkOperatorName();
                     appInfo.网络类型 = "" + telephonyManager.getNetworkType();
                 }
-            }
-            if (appInfo.imei == null) {
-                appInfo.imei = Settings.Secure.getString(mContext.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
             }
         } catch (Exception e) {
             Log.e(TAG, "收集设备信息时出错", e);
