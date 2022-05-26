@@ -1,5 +1,7 @@
 package com.yujing.ycrash;
 
+import static android.os.Environment.MEDIA_MOUNTED;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -47,8 +49,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-
-import static android.os.Environment.MEDIA_MOUNTED;
 
 /**
  * 全局捕获异常当程序发生Uncaught异常的时候，记录错误日志，并且弹出提示，并回调给application

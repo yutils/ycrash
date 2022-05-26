@@ -1,6 +1,23 @@
 # ycrash，安卓崩溃异常捕获类
+
+# 项目废弃！！！！   项目废弃！！！！
+
+# 技术太旧 且腾讯Bugly不香吗？
+
 源码采用java8.0，安卓10.0，API29，androidx。
 当然低版本copy代码过去也能用。
+
+## 开发环境准备
+**推荐使用jetBrains Toolbox 中的android studio，并更新到最新正式版**  
+
+【必须】打开AS的安装目录，在bin目录下找到这两个文件（studio.exe.vmoptions，studio64.exe.vmoptions）  
+在其中最后一行添加	-Dfile.encoding=UTF-8   
+```bat
+安装目录位置
+C:\Users\用户名\AppData\Local\JetBrains\Toolbox\apps\AndroidStudio\ch-0\版本\bin
+如：
+C:\Users\yujing\AppData\Local\JetBrains\Toolbox\apps\AndroidStudio\ch-0\211.7628.21.2111.8139111\bin
+```
 
 ##当前最新版：————> [![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9qaXRwYWNrLmlvL3YveXV0aWxzL3ljcmFzaC5zdmc?x-oss-process=image/format,png)](https://jitpack.io/#yutils/ycrash)
 
