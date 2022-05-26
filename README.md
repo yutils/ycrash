@@ -88,11 +88,10 @@ YCrash.getInstance().setPort("端口")
     异常信息存放在：/sdcard/android/data/软件包名/files/crash/软件名_时间.log
 
 ## 注意添加权限：
-> * 非必须权限  android.permission.INTERNET
+> * 非必须权限 android.permission.INTERNET
 > * 非必须权限 android.permission.ACCESS_COARSE_LOCATION
 > * 非必须权限 android.permission.ACCESS_NETWORK_STATE
 > * 非必须权限 android.permission.READ_PHONE_STATE
-
 
 
 Github地址：[https://github.com/yutils/ycrash](https://github.com/yutils/ycrash)
